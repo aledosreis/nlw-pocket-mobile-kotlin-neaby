@@ -18,9 +18,12 @@ import com.alessandroreis.nlw.nearby.ui.screen.market_details.MarketDetailsScree
 import com.alessandroreis.nlw.nearby.ui.screen.splash.SplashScreen
 import com.alessandroreis.nlw.nearby.ui.screen.welcome.WelcomeScreen
 import com.alessandroreis.nlw.nearby.ui.route.Home
+import com.alessandroreis.nlw.nearby.ui.route.QRCodeScanner
 import com.alessandroreis.nlw.nearby.ui.route.Splash
 import com.alessandroreis.nlw.nearby.ui.route.Welcome
+import com.alessandroreis.nlw.nearby.ui.screen.market_details.MarketDetailsUIEvent
 import com.alessandroreis.nlw.nearby.ui.screen.market_details.MarketDetailsViewModel
+import com.alessandroreis.nlw.nearby.ui.screen.qrcode_scanner.QRCodeScannerScreen
 import com.alessandroreis.nlw.nearby.ui.theme.NearbyTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,7 +37,7 @@ class MainActivity : ComponentActivity() {
                 val homeViewModel by viewModels<HomeViewModel>()
                 val homeUIState by homeViewModel.uiState.collectAsStateWithLifecycle()
 
-                val marketDetailsViewModel by viewModels< MarketDetailsViewModel>()
+                val marketDetailsViewModel by viewModels<MarketDetailsViewModel>()
                 val marketDetailsUIState by marketDetailsViewModel.uiState.collectAsStateWithLifecycle()
 
                 NavHost(
@@ -71,7 +74,24 @@ class MainActivity : ComponentActivity() {
                             market = selectedMarket,
                             uiState = marketDetailsUIState,
                             onEvent = marketDetailsViewModel::onEvent,
+                            onNavigateToQRCodeScanner = {
+                                navController.navigate(QRCodeScanner)
+                            },
                             onNavigateBack = {
+                                navController.popBackStack()
+                            }
+                        )
+                    }
+                    composable<QRCodeScanner> {
+                        QRCodeScannerScreen(
+                            onCompletedScan = { qrCodeContent ->
+                                if (qrCodeContent.isNotEmpty())
+                                    marketDetailsViewModel.onEvent(
+                                        MarketDetailsUIEvent.OnFetchCoupon(
+                                            qrCodeContent = qrCodeContent
+                                        )
+                                    )
+
                                 navController.popBackStack()
                             }
                         )
