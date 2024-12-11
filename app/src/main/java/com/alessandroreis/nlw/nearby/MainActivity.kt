@@ -20,6 +20,7 @@ import com.alessandroreis.nlw.nearby.ui.screen.welcome.WelcomeScreen
 import com.alessandroreis.nlw.nearby.ui.route.Home
 import com.alessandroreis.nlw.nearby.ui.route.Splash
 import com.alessandroreis.nlw.nearby.ui.route.Welcome
+import com.alessandroreis.nlw.nearby.ui.screen.market_details.MarketDetailsViewModel
 import com.alessandroreis.nlw.nearby.ui.theme.NearbyTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,6 +33,9 @@ class MainActivity : ComponentActivity() {
 
                 val homeViewModel by viewModels<HomeViewModel>()
                 val homeUIState by homeViewModel.uiState.collectAsStateWithLifecycle()
+
+                val marketDetailsViewModel by viewModels< MarketDetailsViewModel>()
+                val marketDetailsUIState by marketDetailsViewModel.uiState.collectAsStateWithLifecycle()
 
                 NavHost(
                     navController = navController,
@@ -65,6 +69,8 @@ class MainActivity : ComponentActivity() {
 
                         MarketDetailsScreen(
                             market = selectedMarket,
+                            uiState = marketDetailsUIState,
+                            onEvent = marketDetailsViewModel::onEvent,
                             onNavigateBack = {
                                 navController.popBackStack()
                             }
