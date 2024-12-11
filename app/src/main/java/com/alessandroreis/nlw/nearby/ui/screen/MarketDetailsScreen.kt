@@ -30,9 +30,10 @@ import com.alessandroreis.nlw.nearby.ui.component.market_detail.NearbyMarketDeta
 import com.alessandroreis.nlw.nearby.ui.component.market_detail.NearbyMarketDetailsInfos
 import com.alessandroreis.nlw.nearby.ui.component.market_detail.NearbyMarketDetailsRules
 import com.alessandroreis.nlw.nearby.ui.theme.Typography
+import com.alessandroreis.nlw.nearby.R
 
 @Composable
-fun MarketDetailsScreen(modifier: Modifier = Modifier, market: Market) {
+fun MarketDetailsScreen(modifier: Modifier = Modifier, market: Market, onNavigateBack: () -> Unit) {
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -95,11 +96,17 @@ fun MarketDetailsScreen(modifier: Modifier = Modifier, market: Market) {
                 )
             }
         }
+
+        NearbyButton(
+            modifier = Modifier.align(Alignment.TopStart).padding(24.dp),
+            iconRes = R.drawable.ic_arrow_left,
+            onClick = onNavigateBack
+        )
     }
 }
 
 @Preview
 @Composable
 private fun MarketDetailsScreenPreview() {
-    MarketDetailsScreen(market = mockMarkets.first())
+    MarketDetailsScreen(market = mockMarkets.first(), onNavigateBack = {})
 }
