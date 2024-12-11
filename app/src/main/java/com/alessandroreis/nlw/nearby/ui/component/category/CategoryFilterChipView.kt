@@ -1,4 +1,4 @@
-package com.alessandroreis.nlw.nearby.data.model
+package com.alessandroreis.nlw.nearby.ui.component.category
 
 import androidx.annotation.DrawableRes
 import com.alessandroreis.nlw.nearby.R
