@@ -1,4 +1,4 @@
-package com.alessandroreis.nlw.nearby.ui.screen
+package com.alessandroreis.nlw.nearby.ui.screen.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -12,14 +12,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.alessandroreis.nlw.nearby.data.model.Market
-import com.alessandroreis.nlw.nearby.ui.screen.HomeScreen
-import com.alessandroreis.nlw.nearby.ui.screen.HomeViewModel
-import com.alessandroreis.nlw.nearby.ui.screen.MarketDetailsScreen
-import com.alessandroreis.nlw.nearby.ui.screen.SplashScreen
-import com.alessandroreis.nlw.nearby.ui.screen.WelcomeScreen
-import com.alessandroreis.nlw.nearby.ui.screen.route.Home
-import com.alessandroreis.nlw.nearby.ui.screen.route.Splash
-import com.alessandroreis.nlw.nearby.ui.screen.route.Welcome
+import com.alessandroreis.nlw.nearby.ui.screen.home.HomeScreen
+import com.alessandroreis.nlw.nearby.ui.screen.home.HomeViewModel
+import com.alessandroreis.nlw.nearby.ui.screen.market_details.MarketDetailsScreen
+import com.alessandroreis.nlw.nearby.ui.screen.splash.SplashScreen
+import com.alessandroreis.nlw.nearby.ui.screen.welcome.WelcomeScreen
+import com.alessandroreis.nlw.nearby.ui.route.Home
+import com.alessandroreis.nlw.nearby.ui.route.Splash
+import com.alessandroreis.nlw.nearby.ui.route.Welcome
 import com.alessandroreis.nlw.nearby.ui.theme.NearbyTheme
 
 class MainActivity : ComponentActivity() {

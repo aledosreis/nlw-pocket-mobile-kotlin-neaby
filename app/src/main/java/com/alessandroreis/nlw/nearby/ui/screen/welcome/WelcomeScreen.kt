@@ -1,4 +1,4 @@
-package com.alessandroreis.nlw.nearby.ui.screen
+package com.alessandroreis.nlw.nearby.ui.screen.welcome
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

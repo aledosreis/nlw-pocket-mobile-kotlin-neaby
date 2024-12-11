@@ -1,4 +1,4 @@
-package com.alessandroreis.nlw.nearby.ui.screen
+package com.alessandroreis.nlw.nearby.ui.screen.home
 
 import com.alessandroreis.nlw.nearby.data.model.Category
 import com.alessandroreis.nlw.nearby.data.model.Market

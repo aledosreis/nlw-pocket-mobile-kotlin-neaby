@@ -1,4 +1,4 @@
-package com.alessandroreis.nlw.nearby.ui.screen
+package com.alessandroreis.nlw.nearby.ui.screen.market_details
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -28,7 +28,6 @@ import com.alessandroreis.nlw.nearby.data.model.mock.mockMarkets
 import com.alessandroreis.nlw.nearby.ui.component.button.NearbyButton
 import com.alessandroreis.nlw.nearby.ui.component.market_detail.NearbyMarketDetailsCoupons
 import com.alessandroreis.nlw.nearby.ui.component.market_detail.NearbyMarketDetailsInfos
-import com.alessandroreis.nlw.nearby.ui.component.market_detail.NearbyMarketDetailsRules
 import com.alessandroreis.nlw.nearby.ui.theme.Typography
 import com.alessandroreis.nlw.nearby.R
 
