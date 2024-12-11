@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.alessandroreis.nlw.nearby.data.model.Market
 import com.alessandroreis.nlw.nearby.data.model.mock.mockCategories
 import com.alessandroreis.nlw.nearby.data.model.mock.mockMarkets
 import com.alessandroreis.nlw.nearby.ui.component.category.NearbyCategoryFilterChipList
@@ -27,7 +28,7 @@ import com.google.maps.android.compose.GoogleMap
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, onNavigateToMarketDetails: (Market) -> Unit) {
     val bottomSheetState = rememberBottomSheetScaffoldState()
     var isBottomSheetOpen by remember { mutableStateOf(true) }
 
@@ -35,6 +36,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
     if (isBottomSheetOpen) {
         BottomSheetScaffold(
+            modifier = modifier,
             scaffoldState = bottomSheetState,
             sheetContentColor = Gray100,
             sheetPeekHeight = configuration.screenHeightDp.dp * 0.5f,
@@ -45,7 +47,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         .fillMaxSize()
                         .padding(16.dp),
                     markets = mockMarkets,
-                    onMarketClick = {}
+                    onMarketClick = { selectedMarket ->
+                        onNavigateToMarketDetails(selectedMarket)
+                    }
                 )
             },
             content = {
@@ -70,5 +74,5 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(onNavigateToMarketDetails = {})
 }
