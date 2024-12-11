@@ -2,7 +2,10 @@
 <network-security-config>
 
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomain="true">10.0.2.2</domain>
+        <!--A linha abaixo é para conexão com a API através de emulador - O IP é sempre esse-->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <!--A linha abaixo é para conexão com a API através de dispositivo físico - NECESSÁRIO INSERIR O IP DA MÁQUINA-->
+        <domain includeSubdomains="true">0.0.0.0</domain>
     </domain-config>
 
 </network-security-config>
